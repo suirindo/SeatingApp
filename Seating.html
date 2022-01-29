@@ -8,18 +8,24 @@
 </head>
 <body>
     <div id = "seat"></div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-
-
-
     <script>
-
-
-
-
+        const member = ["山崎","山田","田中","太田","高田","後藤","課長","斉藤","バトー","ボーマ","少佐","トグサ"]
+        const column = 3; //列を指定する数
+        let len = member.length; //配列の数
+        let count = 1; //1を毎回足していく変数
+        // 繰り返し処理
+        for(let i=0; i<len; i++ ){
+            const r = Math.floor(Math.random() * member.length ); //floorは切り捨て
+            const v = member.splice(r,  1); //r番目の配列を１つ取り出す
+            // column変数値で改行
+            if( count % column == 0){
+                $("#seat").append("|" + v + "<br>");
+            }else{
+                $("#seat").append("|" + v );
+            }
+            count++; //countに1を足す
+        }
     </script>
-    
 </body>
 </html>
